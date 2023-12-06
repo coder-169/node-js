@@ -4,12 +4,13 @@ const app = express()
 const port = 3000
 
 app.use(cors())
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('Home!')
 })
-app.get('/about', (req, res) => {
-    res.send('About!')
+app.post('/register', (req, res) => {
+    res.json({success:true, message:'Register!',data:req.body})
 })
 
 app.listen(port, () => {
